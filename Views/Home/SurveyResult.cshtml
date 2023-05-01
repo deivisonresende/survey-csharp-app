@@ -1,0 +1,27 @@
+@model IEnumerable<SurveyResponse>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/lib/bootstrap5/dist/css/bootstrap.css">
+  <title>Enquete :: Resposta</title>
+</head>
+<body>
+    <div class="container">
+      <h1>Enquete</h1>
+      <h2>Resultado parcial</h2>
+      <h4>Você teria coragem de fazer uma viagem sem volta para Marte?</h4>
+
+      @foreach (SurveyResponse response in Model)
+      {
+        <p>@(response.name): @(response.accept.HasValue ? "Sim" : "Não")</p>
+      }
+
+      <p>
+        <a asp-action="Index" class="btn btn-primary">Voltar ao início</a>
+      </p>
+    </div>
+</body>
+</html>
